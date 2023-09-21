@@ -10,14 +10,19 @@ class Prodotto {
     protected $categoria;
 
     // Costruttore per inizializzare le proprietà
-    public function __construct($nome, $prezzo, $immagine, Categoria $categoria) {
+    public function __construct( $immagine, $nome, $prezzo, Categoria $categoria) {
+        $this->immagine = $immagine;
         $this->nome = $nome;
         $this->prezzo = $prezzo;
-        $this->immagine = $immagine;
         $this->categoria = $categoria;
     }
 
     // Getter per ottenere il nome/... del Prodotto
+
+    
+  public function getImmagine() {
+      return $this->immagine;
+  }
 
   public function getNome() {
       return $this->nome;
