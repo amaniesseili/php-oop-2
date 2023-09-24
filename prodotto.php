@@ -1,54 +1,64 @@
 <?php
 
 require_once __DIR__ . "/categoria.php";
+require 'Exception.php';
 
 // Classe per rappresentare un Prodotto
-class Prodotto {
+class Prodotto
+{
+    use CalcoloIVA; // Usa il Trait per calcolare l'IVA
+
     protected $nome;
     protected $prezzo;
     protected $immagine;
     protected $categoria;
 
     // Costruttore per inizializzare le proprietà
-    public function __construct( $immagine, $nome, $prezzo, Categoria $categoria) {
+    public function __construct($immagine, $nome, $prezzo, Categoria $categoria)
+    {
         $this->immagine = $immagine;
         $this->nome = $nome;
         $this->prezzo = $prezzo;
         $this->categoria = $categoria;
     }
 
+    
+
     // Getter per ottenere il nome/... del Prodotto
 
-    
-  public function getImmagine() {
-      return $this->immagine;
-  }
 
-  public function getNome() {
-      return $this->nome;
-  }
+    public function getImmagine()
+    {
+        return $this->immagine;
+    }
 
-  public function getPrezzo() {
-      return $this->prezzo;
-  }
+    public function getNome()
+    {
+        return $this->nome;
+    }
 
-  public function getCategoria() {
-      return $this->categoria->getNome();
-  }
+    public function getPrezzo()
+    {
+        return $this->prezzo;
+    }
 
-  public function setImmagine($immagine) {
-      $this->immagine = $immagine;
-  }
+    public function getCategoria()
+    {
+        return $this->categoria->getNome();
+    }
 
-  public function setNome($nome) {
-      $this->nome = $nome;
-  }
+    public function setImmagine($immagine)
+    {
+        $this->immagine = $immagine;
+    }
 
-  public function setPrezzo($prezzo) {
-      $this->prezzo = $prezzo;
-  }
+    public function setNome($nome)
+    {
+        $this->nome = $nome;
+    }
+
+    public function setPrezzo($prezzo)
+    {
+        $this->prezzo = $prezzo;
+    }
 }
-?>
-
-
-
